@@ -17,15 +17,29 @@ const onClickAdd = () =>{
     p.className = "todo-item";
     p.innerText = inputText;
     
+    // buttonの生成
+    const compleateButton = document.createElement("button");
+    compleateButton.innerText = "完了"
+    compleateButton.addEventListener("click", () => {
+        alert("完了")
+    })
+
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "削除"
+    deleteButton.addEventListener("click", () => {
+        alert("削除")
+    })
+
     // 親子関係の作成
     div.appendChild(p);
+    div.appendChild(compleateButton);
+    div.appendChild(deleteButton);
     li.appendChild(div);
 
     document.getElementById("incomplete-list").appendChild(li)
 
-    
+
 
 }
 
 document.getElementById("add-button").addEventListener("click", onClickAdd);
-
