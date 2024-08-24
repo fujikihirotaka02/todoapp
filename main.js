@@ -3,9 +3,10 @@ import './style.css';
 const onClickAdd = () =>{
     // テキストボックスの内容を取得して初期化する
     const inputText = document.getElementById("add-text").value;
+    inputText === "" ? alert("入力してください") : createIncompleateButton(inputText);
     document.getElementById("add-text").value = ""
 
-    createIncompleateButton(inputText);
+    
 }
 
 
