@@ -17,13 +17,26 @@ const onClickAdd = () =>{
     p.className = "todo-item";
     p.innerText = inputText;
     
-    // buttonの生成
+    // 完了ボタンの生成
     const compleateButton = document.createElement("button");
     compleateButton.innerText = "完了"
     compleateButton.addEventListener("click", () => {
-        alert("完了")
+        // 押された完了ボタンの親にあるliタグを未完了リストから完了リストに移動し、完了ボタンと削除ボタンを消す
+        const compleateTarget = compleateButton.closest("li");
+        compleateButton.nextElementSibling.remove();
+        compleateButton.remove();
+        
+        // 戻すボタンの生成
+        const backButton = document.createElement("button");
+        backButton.innerText = "戻す";
+        compleateTarget.firstElementChild.appendChild(backButton);
+
+        // 完了の方に移動
+        document.getElementById("complete-list").appendChild(compleateTarget)
+
     })
 
+    // 削除ボタンの生成
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "削除"
     deleteButton.addEventListener("click", () => {
